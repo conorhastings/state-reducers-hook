@@ -1,0 +1,46 @@
+{
+  "name": "state-reducers-hook",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:cjs": "BABEL_ENV=cjs babel ./index.ts --out-file ./cjs/index.js",
+    "build:esm": "BABEL_ENV=esm babel ./index.ts --out-file ./esm/index.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "hooks",
+    "reducer",
+    "state reducer"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-typescript": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "babel-jest": "^24.0.0",
+    "husky": "^1.3.1",
+    "prettier": "^1.16.4",
+    "typescript": "^3.2.2",
+    "@types/react": "^16.8.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
